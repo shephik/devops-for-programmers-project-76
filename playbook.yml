@@ -1,39 +1,5 @@
----
+- name: Import playbook_setup
+  ansible.builtin.import_playbook: playbooks/playbook_setup.yml
 
-- hosts: all
-  gather_facts: no
-  # become: yes 
-  # become_user: root
-  # become_method: sudo
-  vars:
-    pip_install_packages: 
-      - name: docker
-        state: absent   
-
-  pre_tasks:
-
-    - name: update apt cache 
-      ansible.builtin.apt:
-        name: apt
-        update_cache: yes
-      become: yes
-      tags: cache
-
-    - name: install ansible
-      ansible.builtin.apt:
-        name: ansible
-        state: latest
-      become: yes  
-      tags: installation
-
-    - name: copy requirements.yml to server
-      ansible.builtin.template:
-        src: requirements.yml
-        dest: /home/kate/requirements.yml
-      become: yes  
-    - name: execute ansible install roles
-      ansible.builtin.shell: ansible-galaxy install -r requirements.yml
-
-  roles:
-    - name: geerlingguy.pip
-      become: yes        
+- name: Import playbook_redmine
+  ansible.builtin.import_playbook: playbooks/playbook_redmine.yml
