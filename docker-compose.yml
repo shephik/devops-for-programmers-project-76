@@ -7,10 +7,14 @@ services:
     restart: always
     ports:
       - 80:3000
+    env_file:
+      - ./.env
     environment:
-      REDMINE_DB_POSTGRES: db
-      REDMINE_DB_PASSWORD: example
-      REDMINE_SECRET_KEY_BASE: supersecretkey
+      REDMINE_DB_POSTGRES: rc1d-br2kin6t3nurn6zg.mdb.yandexcloud.net
+      REDMINE_DB_PORT: 6432
+      REDMINE_DB_DATABASE: db1
+      REDMINE_DB_USERNAME: kate
+      REDMINE_DB_PASSWORD: ${REDMINE_DB_PASSWORD}
 
   db:
     image: postgres

@@ -7,4 +7,4 @@
 ```make redmine``` - команда для деплоя Redmine на сервера
 
 
-http://www.shephik.ru/ - адрес приложения
+https://shephik.ru/ - адрес приложения

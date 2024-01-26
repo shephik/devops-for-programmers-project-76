@@ -5,7 +5,4 @@ setup:
 	ansible-playbook playbooks/playbook_setup.yml -i inventory.ini
 
 redmine:
-	ansible-playbook playbooks/playbook_redmine.yml -i inventory.ini
-
-ci:
-	ansible-playbook playbook.yml -i inventory.ini
+	ansible-playbook --vault-password-file .vaultpass playbooks/playbook_redmine.yml -i inventory.ini
