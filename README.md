@@ -6,7 +6,7 @@
 
 ```make redmine``` - команда для деплоя Redmine на сервера
 
-<!-- ```make datadog``` - команда для запуска DataDog на серверах -->
+```make datadog``` - команда для запуска DataDog на серверах
 
 
 https://shephik.ru/ - адрес приложения

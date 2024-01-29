@@ -1,7 +1,6 @@
 ---
 
 - hosts: all
-  gather_facts: no
 
   vars:
     pip_install_packages: 
@@ -30,7 +29,7 @@
     - name: copy requirements.yml to server
       ansible.builtin.template:
         src: ../requirements.yml
-        dest: /home/kate/requirements.yml
+        dest: "{{ ansible_user_dir }}/requirements.yml"
       become: yes  
     - name: execute ansible install roles
       ansible.builtin.shell: ansible-galaxy install -r requirements.yml
