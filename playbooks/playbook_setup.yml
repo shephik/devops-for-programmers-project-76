@@ -28,11 +28,11 @@
 
     - name: copy requirements.yml to server
       ansible.builtin.template:
-        src: requirements.yml
+        src: ../requirements.yml
         dest: "{{ ansible_user_dir }}/requirements.yml"
       become: yes  
     - name: execute ansible install roles
-      ansible.builtin.shell: ansible-galaxy install -r requirements.yml
+      ansible.builtin.shell: ansible-galaxy install -r {{ ansible_user_dir }}/requirements.yml
 
   roles:
     - name: geerlingguy.pip
