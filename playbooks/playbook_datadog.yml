@@ -1,7 +1,16 @@
 ---
 
 - hosts: webservers
-  gather_facts: no 
+  gather_facts: no
+
+  pre_tasks:
+    - name: copy requirements.yml to server
+      ansible.builtin.template:
+        src: ../requirements.yml
+        dest: /home/kate/requirements.yml
+      become: yes  
+    - name: execute ansible install roles
+      ansible.builtin.shell: ansible-galaxy install -r requirements.yml  
 
   collections:
     - community.general 
