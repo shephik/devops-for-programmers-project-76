@@ -30,5 +30,5 @@
       become: yes
 
     - name: up docker container redmine
-      ansible.builtin.command: 'docker compose up' 
+      ansible.builtin.command: 'docker compose up -d' 
       become: yes     
