@@ -28,7 +28,7 @@
 
     - name: copy requirements.yml to server
       ansible.builtin.template:
-        src: ../requirements.yml
+        src: requirements.yml
         dest: "{{ ansible_user_dir }}/requirements.yml"
       become: yes  
     - name: execute ansible install roles
